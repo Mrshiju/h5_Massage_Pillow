@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>您已成功购买，请勿重复提交!</title>
+    <script src="./files/jquery-3.1.1.min.js"></script>
+    <!-- <script src="./files/flexible.js"></script> -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color: #ebebeb;
+        }
+        
+        #warp {
+            margin: 0.8rem;
+            background-color: white;
+        }
+        
+        #warp .top {
+            background-color: #0F9ED4;
+            width: 100%;
+            height: 4rem;
+            color: white;
+            background: url(./files/shibai.png) no-repeat left #0F9ED4;
+            background-size: 16% auto;
+            text-align: center;
+            padding: 0.5rem 1rem 1rem 4rem;
+            box-sizing: border-box;
+        }
+        
+        #warp .t0 {
+            text-align: left;
+        }
+        
+        #warp .t1 {
+            font-size: 0.1rem;
+            text-align: left;
+        }
+        
+        .bottom {
+            padding: 0.8rem;
+        }
+        
+        .bottom .cause {
+            text-align: left;
+            margin-bottom: 0.2rem;
+            font-size: 0.2rem;
+        }
+        
+        .bottom .discribe {
+            text-align: left;
+            font-size: 0.2rem;
+        }
+        
+        .button {
+            display: block;
+            color: white;
+            background-color: #0F9ED4;
+            width: 4rem;
+            height: 1.5rem;
+            margin: 1rem auto;
+            border-radius: 0.4rem;
+            font-size: 0.2rem;
+            line-height: 1.5rem;
+            box-shadow: 0.2rem 0.2rem .2rem #cccccc;
+        }
+    </style>
+</head>
+<div id='warp'>
+    <div id="top" class="top">
+        <div class="t0">
+            抱歉，出错了!
+        </div>
+        <div class="t1">
+            亲不要太着急，请联系我们客服贴心为你解决！
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="cause">
+            错误原因:
+        </div>
+        <div class="discribe">
+            订单已经提交成功,请勿重复提交,如果需要再次提交，请刷新整个网页。
+        </div>
+        <div class="button">关闭此页</div>
+    </div>
+</div>
+
+<body>
+
+
+</body>
+<!-- <script src="./files/jquery-3.1.1.min.js"></script> -->
+<script>
+    $(".button").click(function() {
+        window.location.href = './index.html';
+        localStorage.removeItem('name');
+    });
+</script>
+
+</html>

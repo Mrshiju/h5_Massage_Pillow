@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>您的订单已经成功，感谢你的支持！</title>
+    <script src="./files/jquery-3.1.1.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color: #ebebeb;
+        }
+        
+        #warp {
+            margin: 0.8rem;
+            background-color: white;
+        }
+        
+        #warp .top {
+            background-color: #0F9ED4;
+            width: 100%;
+            height: 4rem;
+            color: white;
+            background: url(./files/chenggong.png) no-repeat left #0F9ED4;
+            background-size: 16% auto;
+            text-align: center;
+            padding: 0.5rem;
+            box-sizing: border-box;
+        }
+        
+        #warp .top .t0 {
+            display: block;
+            margin: auto;
+        }
+        
+        #warp .top .t1 {
+            text-align: left;
+            padding-left: 4rem;
+            display: none;
+        }
+        
+        #warp .top .t2 {
+            font-size: 0.4rem;
+            text-align: left;
+            padding-left: 4rem;
+            display: none;
+        }
+        
+        #warp .top .icons {
+            float: left;
+            text-align: center;
+        }
+        
+        .loading {
+            height: 0.4rem;
+            background-color: #0F9ED4;
+            width: 100%;
+            margin-bottom: 1px;
+            position: relative;
+            display: block;
+            animation: move 1.5s ease-out;
+            font-size: 0.05rem;
+            line-height: 0.4rem;
+        }
+        
+        #warp .top .icons img {
+            width: 3rem;
+        }
+        
+        .bottom {
+            text-align: left;
+            padding: 1rem;
+            font-size: 0.2rem;
+        }
+        
+        .bottom ul li {
+            line-height: 1.4rem;
+            margin-top: .2rem;
+        }
+        
+        .button {
+            margin: 0 auto;
+            color: white;
+            background-color: #0F9ED4;
+            border-radius: 0.2rem;
+            box-shadow: #0F9ED4;
+            text-align: center;
+            width: 5rem;
+            margin-top: 2rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            box-shadow: .2rem .2rem .2rem #cccccc;
+        }
+        
+        @media screen and (min-width: 760px) {
+            html {
+                font-size: 24px;
+            }
+            #warp {
+                margin: 8rem !important;
+            }
+        }
+        
+        @keyframes move {
+            0% {
+                width: 0%;
+            }
+            20% {
+                width: 40%
+            }
+            60% {
+                width: 80%
+            }
+            90% {
+                width: 90%
+            }
+            100% {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<div id='warp'>
+    <script type="text/javascript">
+    </script>
+    <div class="loading"></div>
+    <div class="top">
+        <!-- <div class="icons">
+            <img src="./files/chenggong.png" alt="">
+        </div> -->
+        <div class="t0" id="t0">
+            订单处理中，请耐心等待....
+        </div>
+        <div class="t1" id="t1">
+            恭喜<span style="color: #ff8000">李四</span>，提交成功!!
+        </div>
+        <div class="t2" id="t2">
+            我们将马上安排发货，很快将可以送到你的手上。祝您生活愉快！
+        </div>
+    </div>
+    <script>
+    </script>
+    <div class="bottom">
+        <ul>
+            <li class="name">
+                姓名:李四
+            </li>
+            <li class="mobel">
+                电话:13212341234
+            </li>
+            <li>
+                产品:【文学荟萃】阅读经典，品味历史，超低价大放送55元
+            </li>
+            <li>
+                付款方式:<i style="background:#ff8000;color:white;padding: 0.2rem;border-radius: 0.3rem;box-shadow: tomato 0.1rem">货到付款</i>
+            </li>
+            <li class="adress">
+                地址:北京丰台嘉园二里
+            </li>
+        </ul>
+
+        <div class="button">
+            返回首页
+        </div>
+    </div>
+</div>
+
+<body>
+
+
+</body>
+<!-- <script src="./files/jquery-3.1.1.min.js"></script> -->
+<script>
+    $(".button").click(function() {
+        window.location.href = './index.html';
+        localStorage.removeItem('name');
+        // window.history.go(0);
+    });
+
+    function weidthChange() {
+        let percent = $(".loading").width();
+        let width = $(".top").outerWidth();
+        // console.log(percent, width);
+        let widthHtml = (percent / width).toFixed(2) * 100 + '%';
+        $(".loading").text(widthHtml);
+        if (widthHtml == '100%') {
+            $('.loading').fadeOut();
+            document.getElementById("t0").style.display = 'none';
+            document.getElementById("t1").style.display = 'block';
+            document.getElementById("t2").style.display = 'block';
+        }
+    }
+    setInterval(weidthChange, 100);
+
+    // if (window.name == "") {
+    //     window.name = "isReload"; // 在首次进入页面时我们可以给window.name设置一个固定值 
+    // } else if (window.name == "isReload") {
+    //     alert("您已经提交成功，请勿重新提交!")
+    //     window.location.href = "./error.html"
+    // }
+    if (localStorage.getItem("name")) {
+        console.log("页面被刷新1");
+        window.location.href = "./error.html"
+    } else {
+        console.log("首次被加载");
+        localStorage.setItem("name", true)
+    }
+
+    $(".mobel").text("手机号 : 13111182711");
+</script>
+
+</html>
